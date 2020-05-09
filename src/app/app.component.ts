@@ -7,4 +7,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent  {
   name = 'Angular';
+  public default=true;
+  public message=true;
+  public choice="";
+  ExistingUser()
+  {
+    this.message=false;
+    this.choice="existing";
+  }
+  home()
+  {
+    this.message=true;
+  }
+  newUser()
+  {
+    this.message=false;
+    this.choice="new";
+  }
 }

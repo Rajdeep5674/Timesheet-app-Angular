@@ -1,4 +1,34 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<html class="myclass">
+<body class="myclass">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<div class="container" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/architecture.jpg'); background-repeat: no-repeat; background-size: 100% 100%; background-position: center center;">
+
+<div  class="container p-3 my-3">
+        <button class="btn btn-primary" type="submit" routerLink="/" (click)=home()>Home</button>&nbsp;<br><br>
+  <h1 class="text-center"> Timesheet Tracking Application</h1>
+</div>
+<div  class="container p-3 my-3">
+
+  <div *ngIf="message">
+
+    <button class="btn btn-primary" type="submit" (click)=ExistingUser()>Existing User ? Login here.</button>&nbsp;<br><br>
+
+    <button class="btn btn-primary" type="submit" (click)=newUser()>New User? Create your account here.</button>&nbsp; 
+
+  </div>
+  <div *ngIf="!message">
+    <div [ngSwitch]="choice">
+      <div *ngSwitchCase="'new'">
+        <app-existing-user (childEvent)="message=$event"></app-existing-user>
+      </div>
+      <div *ngSwitchCase="'existing'">
+        <app-new-user (childEvent)="message=$event"></app-new-user>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
