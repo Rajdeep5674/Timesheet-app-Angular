@@ -1,5 +1,6 @@
 import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 import {User} from './user';
+import {EnrollmentService} from './enrollment.service';
 
 @Component({
   selector: 'app-new-user',
@@ -32,13 +33,16 @@ public childEvent=new EventEmitter();
     this.message="password did not match.Please try again.";
     this.message_class="alert alert-warning";
   }
-
+  //subscribing to the enrollment servive
+  console.log("User adata"+this.userModel);
+  this._enrollmentService.enroll(this.userModel) .subscribe(data=>console.log('success!!',data),
+  error=>console.error('error',error))
   }
   fireEvent()
   {
     this.childEvent.emit(true);
   }
-  constructor() { 
+  constructor(private _enrollmentService:EnrollmentService) { 
     
   }
 
