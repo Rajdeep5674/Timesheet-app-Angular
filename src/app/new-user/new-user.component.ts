@@ -11,13 +11,26 @@ private full_name;
 private password1;
 private password2;
 
+public message="";
+public message_class="";
 @Output()
 public childEvent=new EventEmitter();
 
-  submit(full_name,full_address,dob,phone_number,username,password1,password2){
-  this.full_name=full_name;
-  this.password1=password1;
-  this.password2=password2;
+  submit(full_name,password1,password2){
+  if(password1==password2)
+  {
+    this.full_name=full_name;
+    this.password1=password1;
+    this.password2=password2;
+
+    this.message="Success !! You have saved your details.";
+    this.message_class="alert alert-success";
+  }
+  else
+  {
+    this.message="password did not match.Please try again.";
+    this.message_class="alert alert-warning";
+  }
   }
   fireEvent()
   {

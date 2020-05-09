@@ -1,17 +1,26 @@
-  <div class="form-group container bg-light p2 was-validated">
+<div id="top_message" [class]="message_class">
+  <p>{{message}}</p>
+</div>
+  
+  <form #userform="ngForm">
+  <div class="form-group container bg-light p2">
   <h1>Please Fill Your Details Here</h1>
     <label>Full Name</label>
-      <input #full_name type="text" class="form-control" placeholder="Enter your name" required><br>
+      <input #full_name="ngModel" type="text" class="form-control" placeholder="Enter your name" required ngModel name="full_name"  [class.is-invalid]="full_name.invalid && full_name.touched"><br>
 
       <label>Set Your Password </label>
-      <input #password1 type="password" class="form-control" placeholder="set your password" required><br>
+      <input #password1="ngModel" type="password" class="form-control" placeholder="set your password" required ngModel name="pwd1" [class.is-invalid]="password1.invalid && password1.touched"><br>
 
       <label>Confirm Password </label>
-      <input #password2 type="password" class="form-control"placeholder="re-enter the password" required><br>
+      <input #password2="ngModel" type="password" class="form-control" placeholder="re-enter the password" required ngModel name="pwd2" [class.is-invalid]="password2.invalid && password2.touched"><br>
 
     <div class="text-center">
-        <button class="btn btn-primary" type="submit" (click)=fireEvent() >Cancel </button> &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; 
+        <a href="#top_message">
+        <button class="btn btn-primary" type="submit" (click)=fireEvent() >Cancel </button> &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;</a>
 
-        <button class="btn btn-primary" type="submit" (click)=submit(full_name,password1,password2)>Submit</button>
+        <a href="#top_message">
+        <button class="btn btn-primary" type="submit" (click)=submit(full_name.value,password1.value,password2.value)>Submit</button></a>
     </div>
   </div>
+  </form>
+
