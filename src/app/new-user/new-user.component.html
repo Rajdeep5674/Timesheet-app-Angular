@@ -22,7 +22,7 @@
         <button class="btn btn-primary" type="submit" (click)=fireEvent() >Cancel </button> &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;</a>
 
         <a href="#top_message">
-        <button class="btn btn-primary" type="submit" (click)=submit(full_name.value,password1.value,password2.value)>Submit</button></a>
+        <button [disabled]="userform.form.invalid" class="btn btn-primary" type="submit" (click)=submit(full_name.value,password1.value,password2.value)>Submit</button></a>
     </div>
   </div>
   </form>
