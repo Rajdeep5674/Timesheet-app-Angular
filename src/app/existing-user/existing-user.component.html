@@ -1,0 +1,21 @@
+<link  rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<div [class]="message_class">
+  <p>{{message}}</p>
+</div>
+<div *ngIf="active_session">
+    <button class="btn btn-primary" type="submit" (click)=logout()>Logout</button>
+</div>
+<div *ngIf="loginForm">
+  <div class="form-group container bg-light p-2">
+      <h1 class="text-center">Login</h1>
+        <label>Enter Username  </label>
+          <input #username type="text" class="form-control" placeholder="Username"><br>
+        <label>Enter password  </label>
+          <input #password type="password" class="form-control"   placeholder="password"><br>
+
+         <div class="text-center">
+            <button class="btn btn-primary" type="submit" (click)=fireEvent()>Cancel </button> &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; 
+            <button class="btn btn-primary" type="submit" (click)=submit(username.value,password.value)>Submit</button>
+         </div>
+    </div>
+</div>

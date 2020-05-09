@@ -16,15 +16,15 @@
     <button class="btn btn-primary" type="submit" (click)=ExistingUser()>Existing User ? Login here.</button>&nbsp;<br><br>
 
     <button class="btn btn-primary" type="submit" (click)=newUser()>New User? Create your account here.</button>&nbsp; 
-
   </div>
-  <div *ngIf="!message">
+
+    <div *ngIf="!message">
     <div [ngSwitch]="choice">
       <div *ngSwitchCase="'new'">
-        <app-existing-user (childEvent)="message=$event"></app-existing-user>
+        <app-new-user (childEvent)="message=$event"></app-new-user>
       </div>
       <div *ngSwitchCase="'existing'">
-        <app-new-user (childEvent)="message=$event"></app-new-user>
+        <app-existing-user (childEvent)="message=$event"></app-existing-user>
       </div>
     </div>
   </div>

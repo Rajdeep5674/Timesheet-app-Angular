@@ -1,0 +1,17 @@
+  <div class="form-group container bg-light p2 was-validated">
+  <h1>Please Fill Your Details Here</h1>
+    <label>Full Name</label>
+      <input #full_name type="text" class="form-control" placeholder="Enter your name" required><br>
+
+      <label>Set Your Password </label>
+      <input #password1 type="password" class="form-control" placeholder="set your password" required><br>
+
+      <label>Confirm Password </label>
+      <input #password2 type="password" class="form-control"placeholder="re-enter the password" required><br>
+
+    <div class="text-center">
+        <button class="btn btn-primary" type="submit" (click)=fireEvent() >Cancel </button> &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; 
+
+        <button class="btn btn-primary" type="submit" (click)=submit(full_name,password1,password2)>Submit</button>
+    </div>
+  </div>
