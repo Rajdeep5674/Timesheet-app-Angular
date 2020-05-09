@@ -2,27 +2,27 @@
   <p>{{message}}</p>
 </div>
   
-  <form #userform="ngForm">
+  <form (ngSubmit)="onSubmit()" #userform="ngForm" novalidate>
   <div class="form-group container bg-light p2">
   <h1>Please Fill Your Details Here</h1>
     <label>Full Name</label>
-      <input #full_name="ngModel" type="text" class="form-control" placeholder="Enter your name" required ngModel name="full_name"  [class.is-invalid]="full_name.invalid && full_name.touched">
+      <input #full_name="ngModel" type="text" class="form-control" placeholder="Enter your name" required [(ngModel)]="userModel.full_name" name="full_name"  [class.is-invalid]="full_name.invalid && full_name.touched" [(ngModel)]="userModel.full_name">
             <small class="text-danger" [class.d-none]="full_name.valid || full_name.untouched">Name is required</small><br><br>
 
       <label>Set Your Password </label>
-      <input #password1="ngModel" type="password" class="form-control" placeholder="set your password" required ngModel name="pwd1" [class.is-invalid]="password1.invalid && password1.touched">
+      <input #password1="ngModel" type="password" class="form-control" placeholder="set your password" required [(ngModel)]="userModel.password1" name="password1" [class.is-invalid]="password1.invalid && password1.touched">
             <small class="text-danger" [class.d-none]="password1.valid || password1.untouched">password is required</small><br><br>
 
       <label>Confirm Password </label>
-      <input #password2="ngModel" type="password" class="form-control" placeholder="re-enter the password" required ngModel name="pwd2" [class.is-invalid]="password2.invalid && password2.touched">
+      <input #password2="ngModel" type="password" class="form-control" placeholder="re-enter the password" required [(ngModel)]="userModel.password2" name="password2" [class.is-invalid]="password2.invalid && password2.touched">
             <small class="text-danger" [class.d-none]="password2.valid || password2.untouched">Enter password again to confirm</small><br><br>
 
     <div class="text-center">
         <a href="#top_message">
-        <button class="btn btn-primary" type="submit" (click)=fireEvent() >Cancel </button> &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;</a>
+        <button class="btn btn-primary" type="submit" (click)=fireEvent() >Cancel </button> &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
 
         <a href="#top_message">
-        <button [disabled]="userform.form.invalid" class="btn btn-primary" type="submit" (click)=submit(full_name.value,password1.value,password2.value)>Submit</button></a>
+        <button [disabled]="userform.form.invalid" class="btn btn-primary" type="submit">Submit</button></a>
     </div>
   </div>
   </form>
