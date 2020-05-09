@@ -1,5 +1,6 @@
 import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 import {User} from './user';
+
 @Component({
   selector: 'app-new-user',
   templateUrl: './new-user.component.html',

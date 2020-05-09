@@ -1,5 +1,5 @@
-<div id="top_message" [class]="message_class">
-  <p>{{message}}</p>
+<div [class]="message_class">
+  <p id="goToMessage" >{{message}}</p>
 </div>
   
   <form (ngSubmit)="onSubmit()" #userform="ngForm" novalidate>
@@ -10,7 +10,7 @@
             <small class="text-danger" [class.d-none]="full_name.valid || full_name.untouched">Name is required</small><br><br>
 
       <label>Set Your Password </label>
-      <input #password1="ngModel" type="password" class="form-control" placeholder="set your password" required [(ngModel)]="userModel.password1" name="password1" [class.is-invalid]="password1.invalid && password1.touched">
+      <input #password1="ngModel" type="password" class="form-control" placeholder="set your password" required [(ngModel)]="userModel.password1" name="password1" [class.is-invalid]="password1.invalid && password1.touched" data-toggle="password">
             <small class="text-danger" [class.d-none]="password1.valid || password1.untouched">password is required</small><br><br>
 
       <label>Confirm Password </label>
@@ -18,10 +18,9 @@
             <small class="text-danger" [class.d-none]="password2.valid || password2.untouched">Enter password again to confirm</small><br><br>
 
     <div class="text-center">
-        <a href="#top_message">
         <button class="btn btn-primary" type="submit" (click)=fireEvent() >Cancel </button> &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
 
-        <a href="#top_message">
+        <a href="#goToMessage">
         <button [disabled]="userform.form.invalid" class="btn btn-primary" type="submit">Submit</button></a>
     </div>
   </div>
